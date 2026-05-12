@@ -1,11 +1,164 @@
-<!DOCYUPE>
-<html lang="en">
-  <head>
-    <title>Birinchi Loyiham </title>
-  </head>
-  <body>
-    
-    <h1>Salom, Bu mening Loyihamdan sizga Bir Lavha</h1>
-    <button>Like</button>
-  </body>
- <html/>
+[5/12/2026 10:34 PM] ⛧♡ My Profile N1✧ ㋡: <!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAA Blog | Maxsus Loyiha</title>
+    <style>
+        /* CSS Dizayn */
+        :root {
+            --primary-color: #007bff;
+            --dark-bg: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        /* Login Formasi */
+        #auth-section input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover { background: #0056b3; }
+
+        /* Blog Kontenti */
+        #blog-content { display: none; }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 10px;
+            color: #00d2ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .interest-tag {
+            background: #444;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Login Bo'limi -->
+        <div id="auth-section">
+            <h2 id="auth-title">Ro'yxatdan o'tish</h2>
+            <input type="text" id="username" placeholder="Foydalanuvchi nomi">
+            <input type="password" id="password" placeholder="Parol">
+            <button class="btn" onclick="handleAuth()" id="auth-btn">Kirish</button>
+        </div>
+
+        <!-- Asosiy Blog Bo'limi -->
+        <div id="blog-content">
+            <img src="https://via.placeholder.com/100" alt="Laziz" class="profile-img">
+            <h1>LAA Blog</h1>
+            <p>Xush kelibsiz! Bu yerda mening dunyom bilan tanishasiz.</p>
+
+            <div class="social-links">
+                <a href="https://t.me/Laziz201042" target="_blank">✈️ Telegram</a>
+                <a href="https://instagram.com/profil_nomingiz" target="_blank">📸 Instagram</a>
+            </div>
+
+            <h3>Qiziqishlarim:</h3>
+            <div class="interests">
+                <span class="interest-tag">🛡️ Cybersecurity</span>
+                <span class="interest-tag">🐍 Python Coding</span>
+                <span class="interest-tag">🐧 Linux & VirtualBox</span>
+                <span class="interest-tag">🤖 AI & Automation</span>
+                <span class="interest-tag">🇬🇧 English Learning</span>
+            </div>
+
+            <button class="btn" style="margin-top: 30px; background: #ff4444;" onclick="logout()">Chiqish</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript Funksiyalari
+        let isRegistered = false;
+[5/12/2026 10:34 PM] ⛧♡ My Profile N1✧ ㋡: function handleAuth() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            if (user === "" || pass === "") {
+                alert("Iltimos, barcha maydonlarni to'ldiring!");
+                return;
+            }
+
+            // Oddiy mantiq: Birinchi marta bosganda ro'yxatdan o'tadi, ikkinchisida kiradi
+            if (!isRegistered) {
+                alert("Muvaffaqiyatli ro'yxatdan o'tdingiz! Endi kiring.");
+                isRegistered = true;
+                document.getElementById('auth-title').innerText = "Tizimga kirish";
+                document.getElementById('auth-btn').innerText = "Kirish";
+                return;
+            }
+
+            // Kirish simulyatsiyasi
+            document.getElementById('auth-section').classList.add('hidden');
+            document.getElementById('blog-content').style.display = 'block';
+        }
+
+        function logout() {
+            location.reload(); // Sahifani yangilab chiqib ketish
+        }
+    </script>
+</body>
+</html>
